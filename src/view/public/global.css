@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #282a3a;
+  overflow-y: hidden;
+}
+
+.out-ul {
+  position: relative;
+}
+
+.introduce-box {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  user-select: none;
+}

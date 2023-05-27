@@ -1,0 +1,34 @@
+@keyframes themeInto {
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(.5);
+    }
+}
+
+@keyframes introduceInto {
+    0% {
+        top: -100px;
+    }
+
+    100% {
+        top: 70px;
+    }
+}
+
+.mask:after {
+    content: "";
+    z-index: 1024;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
