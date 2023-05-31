@@ -26,9 +26,9 @@
 </script>
 
 <ul class="out-ul">
-  <li>
+  <li class="out-li">
     <div class="introduce-box">
-      HaveNoNameYet
+      undefined
     </div>
     <div id="out-box">
       <div class="left-box">

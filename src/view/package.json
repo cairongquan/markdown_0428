@@ -21,7 +21,10 @@
     "svelte": "^3.55.0"
   },
   "dependencies": {
+    "@rollup/pluginutils": "^5.0.2",
     "axios": "^1.4.0",
+    "commondir": "^1.0.1",
+    "is-builtin-module": "^3.2.1",
     "postcss": "^8.4.23",
     "rollup-plugin-polyfill-node": "^0.12.0",
     "rollup-plugin-postcss": "^4.0.2",

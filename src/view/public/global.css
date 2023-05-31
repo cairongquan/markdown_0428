@@ -15,7 +15,15 @@ body {
 }
 
 .out-ul {
+  width: auto;
   position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.out-li {
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .introduce-box {

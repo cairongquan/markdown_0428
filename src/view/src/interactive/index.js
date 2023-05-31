@@ -1,18 +1,14 @@
-/*
- * @Author: cairq cairq@tongbaninfo.com
- * @Date: 2023-05-25 22:13:41
- * @LastEditors: cairq cairq@tongbaninfo.com
- * @LastEditTime: 2023-05-27 12:03:55
- * @FilePath: \markdown_0428\view\src\interactive\index.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import './index.css'
+
+import './github.css'
+
 import themeOption from './option'
 
 const outBox = () => document.querySelectorAll('#out-box')
 
 const rightBox = () => document.querySelectorAll('.right-box')
-const outUl = () => document.querySelectorAll('.out-ul')
+const outli = () => document.querySelectorAll('.out-li')
+const outUl = () => document.querySelector('.out-ul')
 const introduceBox = () => document.querySelectorAll('.introduce-box')
 
 const animationOther = {
@@ -31,7 +27,7 @@ const animationOther = {
             transition: 'all ease 1024ms',
             opacity: 1,
             animation: 'introduceInto 620ms ease forwards',
-        }
+        },
     }
 }
 
@@ -41,4 +37,17 @@ export function changeThemeInto(e) {
     outBox()[themeOption.activeTheme].classList.add('mask')
     Object.assign(rightBox()[themeOption.activeTheme].style, animationOther.themeInto.rightBox)
     Object.assign(introduceBox()[themeOption.activeTheme].style, animationOther.themeInto.introduceBox)
+
+    // copy curActive themenOutBoxLi
+
+    outli()[themeOption.activeTheme].style.width = '50%'
+    outUl().style.width = '200%'
+
+    const outBoxCopy = outBox()[themeOption.activeTheme].cloneNode(true)
+    outBoxCopy.querySelector('.right-box').classList.add('github-light')
+
+    const tempLi = document.createElement('li')
+    tempLi.className = 'out-li'
+    tempLi.appendChild(outBoxCopy)
+    outUl().appendChild(tempLi)
 }
