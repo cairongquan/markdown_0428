@@ -11,26 +11,47 @@ body {
   padding: 0;
   margin: 0;
   background-color: #282a3a;
-  overflow-y: hidden;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .out-ul {
-  width: auto;
   position: relative;
   display: flex;
-  overflow: hidden;
+  transition: all ease 220ms;
 }
 
 .out-li {
   width: 100%;
+  height: 100vh;
   flex-shrink: 0;
+  position: relative;
 }
 
 .introduce-box {
+  background: -webkit-linear-gradient(120deg, #FFCC70 0%, #80D0C7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 0;
   position: absolute;
   left: 50%;
   top: 0;
   transform: translateX(-50%);
   user-select: none;
+  /* animation: introduceTextAnimation ease-in-out 220ms infinite; */
 }
+
+/* @keyframes introduceTextAnimation {
+  0% {
+    background: -webkit-linear-gradient(120deg, #4158D0 0%, #C850C0 46%, #FFCC70);
+  }
+
+  50% {
+    background: -webkit-linear-gradient(120deg, #FFCC70 0%, #80D0C7);
+  }
+
+  100% {
+    background: -webkit-linear-gradient(120deg, #80D0C7 0%, #4158D0);
+  }
+} */

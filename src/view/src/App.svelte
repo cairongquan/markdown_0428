@@ -6,6 +6,8 @@
 
   import { content } from "./store";
 
+  import { styleList } from "../src/interactive/index";
+
   let renderData = [];
   let contentHTML = "";
 
@@ -17,7 +19,6 @@
     const { data: resolve } = await axios.get("./export.json");
     renderData = resolve;
     if (renderData.find((item) => item.name === "index" && !item.isDir)) {
-      console.log(renderData.find((item) => item.name === "index" && !item.isDir))
       content.update(() =>
         renderData.find((item) => item.name === "index" && !item.isDir)
       );
@@ -27,9 +28,7 @@
 
 <ul class="out-ul">
   <li class="out-li">
-    <div class="introduce-box">
-      undefined
-    </div>
+    <div data-text="undefined" class="introduce-box">undefined</div>
     <div id="out-box">
       <div class="left-box">
         <Info />
@@ -45,15 +44,12 @@
 <style>
   #out-box {
     background-color: #fff;
-    width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: space-between;
-    position: relative;
   }
 
   .left-box {
-    width: 23%;
+    width: 262px;
     height: 100vh;
     background-color: #f7f7f5;
     border-right: 1px solid #dededc;
@@ -61,10 +57,10 @@
     box-sizing: border-box;
   }
   .right-box {
-    width: 80%;
+    width: calc(100% - 262px);
     max-height: 100vh;
-    overflow-y: auto;
     padding: 20px;
     box-sizing: border-box;
+    overflow-y: auto;
   }
 </style>
