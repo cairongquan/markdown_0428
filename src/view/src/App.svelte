@@ -6,8 +6,6 @@
 
   import { content } from "./store";
 
-  import { styleList } from "../src/interactive/index";
-
   let renderData = [];
   let contentHTML = "";
 
@@ -17,6 +15,7 @@
   getDataHandle();
   async function getDataHandle() {
     const { data: resolve } = await axios.get("./export.json");
+    console.log(resolve)
     renderData = resolve;
     if (renderData.find((item) => item.name === "index" && !item.isDir)) {
       content.update(() =>
@@ -34,7 +33,7 @@
         <Info />
         <RenderBox {renderData} />
       </div>
-      <div class="right-box">
+      <div class="right-box github-light">
         {@html contentHTML}
       </div>
     </div>

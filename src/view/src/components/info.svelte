@@ -2,9 +2,7 @@
   import axios from "axios";
   import { onMount } from "svelte";
 
-
-  import { changeThemeInto } from '../interactive/index'
-
+  import { changeThemeInto } from "../interactive/index";
 
   let avatarPath = "";
   let canShowThemeValue = true;
@@ -20,7 +18,7 @@
   <img class="avatar-option" src={avatarPath} draggable="false" />
   <ul class="option-list">
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <li
+    <!-- <li
       class="list-item theme-change-box"
       class:show-theme={canShowThemeValue}
       title="更换主题"
@@ -41,7 +39,7 @@
           d="M17 19h4"
         /></svg
       >
-    </li>
+    </li> -->
   </ul>
 </div>
 
