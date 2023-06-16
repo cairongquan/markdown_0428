@@ -6,16 +6,20 @@
 
   import { content } from "./store";
 
+  import "jquery";
+
   let renderData = [];
   let contentHTML = "";
 
+  let scriptPath = "";
+
   content.subscribe((value) => {
     contentHTML = value.content;
+    scriptPath = value.jsSrc
   });
   getDataHandle();
   async function getDataHandle() {
     const { data: resolve } = await axios.get("./export.json");
-    console.log(resolve)
     renderData = resolve;
     if (renderData.find((item) => item.name === "index" && !item.isDir)) {
       content.update(() =>
@@ -35,6 +39,7 @@
       </div>
       <div class="right-box github-light">
         {@html contentHTML}
+        <script src={scriptPath}></script>
       </div>
     </div>
   </li>
