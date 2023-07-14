@@ -317,7 +317,6 @@
 .github-light ol {
   margin-top: 0;
   margin-bottom: 0;
-  padding-left: 2em;
 }
 
 .github-light ol ol,
@@ -533,10 +532,6 @@
 
 .github-light li>p {
   margin-top: 16px;
-}
-
-.github-light li+li {
-  margin-top: .25em;
 }
 
 .github-light dl {

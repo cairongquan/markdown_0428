@@ -22,13 +22,21 @@ body {
 }
 
 .water-item {
-  border-radius: 4px;
-  background-color: azure;
+  height: auto;
+  display: inline-block;
 }
 
 .water-list {
   display: flex;
+  align-items: self-start;
   justify-content: space-between;
+}
+
+.water-div {
+  width: 100%;
+  background-color: #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
 }
 
 .out-li {
