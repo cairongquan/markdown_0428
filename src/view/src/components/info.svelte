@@ -16,6 +16,9 @@
 <div class="left-box__option">
   <!-- svelte-ignore a11y-missing-attribute -->
   <img class="avatar-option" src={avatarPath} draggable="false" />
+  <div class="user-name">
+    <span>cairongquan10的博客</span>
+  </div>
   <ul class="option-list">
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- <li
@@ -67,21 +70,9 @@
     list-style: none;
     margin-left: 8px;
   }
-  .list-item {
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  .list-item:hover {
-    background-color: #ededeb;
-  }
-  .list-item svg {
-    width: 16px;
-    height: 16px;
-    color: rgba(55, 53, 47, 0.35);
+  .user-name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-left: 12px;
   }
 </style>

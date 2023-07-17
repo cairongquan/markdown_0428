@@ -24,10 +24,13 @@ function watchFileChangeEvent() {
 
 // format Md
 function reanderWebJsonFromMd(dir) {
+  let dirOrFileList = [];
   if (statSync(dir).isDirectory()) {
-    const dirOrFileList = readdirSync(dir).map((item) =>
-      formatMdDir(dir, item)
-    );
+    try {
+      dirOrFileList = readdirSync(dir).map((item) => formatMdDir(dir, item));
+    } catch (err) {
+      console.log(err, 111);
+    }
     for (let i = 0; i < dirOrFileList.length; i++) {
       if (dirOrFileList[i].isDir) {
         dirOrFileList[i].children = reanderWebJsonFromMd(
@@ -42,9 +45,8 @@ function reanderWebJsonFromMd(dir) {
 function formatMdDir(dir, item) {
   const curPath = join(dir, item);
   const isDir = statSync(curPath).isDirectory();
-  const html = marked(readFileSync(curPath, "utf-8"));
+  const html = (!isDir && marked(readFileSync(curPath, "utf-8"))) || "";
   const $ = cheerio.load(html);
-
   return Object.assign(
     {
       name: basename(curPath).split(".")[0],

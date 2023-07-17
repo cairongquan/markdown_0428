@@ -34,7 +34,7 @@ function render() {
     waterDiv.className = "water-div";
     waterDiv.src = item
     Object.assign(waterDiv.style, {
-      height: getRandomIntInclusive(180, 250) + "px",
+      height: getRandomIntInclusive(200, 250) + "px",
     });
     const minDom = getMinHeightLis();
     minDom.appendChild(waterDiv);
