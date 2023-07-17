@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   import axios from "axios";
 
   import RenderBox from "./RenderBox.svelte";
@@ -10,12 +12,18 @@
 
   let renderData = [];
   let contentHTML = "";
+  onMount(() => {
+    content.subscribe((value) => {
+      const scriptBox = document.querySelector(".script-box");
+      scriptBox.querySelector("script") !== null &&
+        scriptBox.removeChild(scriptBox.querySelector("script"));
 
-  let scriptPath = "";
-
-  content.subscribe((value) => {
-    contentHTML = value.content;
-    scriptPath = value.jsSrc
+      contentHTML = value.content;
+      const scriptDom = document.createElement("script");
+      scriptDom.src = value.jsSrc;
+      scriptBox.appendChild(scriptDom);
+      console.log(window)
+    });
   });
   getDataHandle();
   async function getDataHandle() {
@@ -39,7 +47,7 @@
       </div>
       <div class="right-box github-light">
         {@html contentHTML}
-        <script src={scriptPath}></script>
+        <div class="script-box" />
       </div>
     </div>
   </li>
